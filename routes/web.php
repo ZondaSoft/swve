@@ -227,6 +227,10 @@ Route::post('/infvehiculo/print', 'InfNovedController@printpdf');  // Total Gene
 Route::post('/infvehiculo/print2', 'InfNovedController@printpdf2');  // Total General por empresa
 Route::post('/infvehiculo/print3', 'InfNovedController@printpdf');  // Total General por empresa
 
+Route::post('/infvehiculo/excel', 'InfNovedController@excel');  // Total General por empresa
+Route::post('/infvehiculo/excel2', 'InfNovedController@excel2');  // Total General por empresa
+Route::post('/infvehiculo/excel3', 'InfNovedController@excel3');  // Total General por empresa
+
 // Rutas de informes (novedades)
 Route::get('/infnovedades', 'InfNovedController@novedades'); // ->name('home');
 Route::get('/infembargos', 'InfNovedController@embargos'); // ->name('home');

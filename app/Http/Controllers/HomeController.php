@@ -341,12 +341,13 @@ class HomeController extends Controller
         // Grabar en bbdd los cambios del form de alta
         // dd($request->all());
         $legajo = Veh001::find($id);
-
-        $legajo->modelo = $request->input('modelo');
+        
+        $legajo->codigo = $request->input('codigo');
         $legajo->grupo = $request->input('grupo');
         $legajo->modelo = $request->input('modelo');
         $legajo->motor = $request->input('motor');
         $legajo->chasis = $request->input('chasis');
+        $legajo->empresa = $request->input('empresa');
         $legajo->estado = $request->input('estado');
         $legajo->equipo = $request->input('equipo');
         $legajo->modelo_eq = $request->input('modelo_eq');
@@ -365,11 +366,11 @@ class HomeController extends Controller
         $this->validate($request, $rules, $messages);
 
 
-        $legajo->update($request->only('detalle','nombres','cuil','domici','nro','piso','dpto','locali','provin','cod_pos','telef','condicion','convenio','situacion','forma_pago','est_civil','salud','incap','nacionali','fecha','cod_centro','cod_jerarq','cod_categ','codsector','funcion'));
+        $legajo->update($request->only('codigo','detalle','modelo','grupo','anio','motor','chasis','equipo','modelo_eq','empresa','inscripto','numero','municipal','pin','vto_ruta','vto_tecni','f_alta','seccional','tramite','controlweb'));
 
         // dd($legajo->cod_centro);
 
-        return redirect('/home');
+        return redirect('/home/' . $id);
     }
 
     public function delete($id)

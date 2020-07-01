@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Exports\Veh001Export;
+use App\Exports\Veh002Export;
 use Carbon\Carbon;
 use App\Veh001;
 use App\Veh002;
 use App\Veh010;
+Use Maatwebsite\Excel\Sheet;
 use DB;
 
 class InfNovedController extends Controller
@@ -203,4 +206,27 @@ class InfNovedController extends Controller
         return $pdf->stream();
     }
 
+
+    public function excel(Request $request)
+    {
+      //$pdf = \App::make('dompdf.wrapper');
+
+      $desde = $request->input('empresa');
+      $hasta = $request->input('empresa2');
+      $bajas = $request->input('bajas');
+
+      return \Excel::download(new Veh001Export($desde, $hasta, $bajas), 'Vehiculos_activos.xlsx');
+    }
+
+    
+    public function excel2(Request $request)
+    {
+      //$pdf = \App::make('dompdf.wrapper');
+
+      $desde = $request->input('empresa');
+      $hasta = $request->input('empresa2');
+      $bajas = $request->input('bajas');
+
+      return \Excel::download(new Veh002Export($desde, $hasta, $bajas), 'Vehiculos_baja.xlsx');
+    }
 }

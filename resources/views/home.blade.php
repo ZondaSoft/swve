@@ -125,8 +125,8 @@
                               <label class="col-form-label">Nro. Interno</label>
                               <input class="form-control"
                                 type="text" name="codigo" id="codigo"
-                                {{ $edicion?'':'disabled' }}
-                                {{ $agregar?'enabled autofocus=""':'disabled' }}
+                                {{ $edicion?'enabled':'disabled' }}
+                                {{ $agregar?'enabled autofocus=""':'' }}
                                 value="{{ old('codigo',$legajo->codigo) }}" maxlength="5" required>
                           </div>
 
@@ -399,7 +399,7 @@
 
                                   </div>
                                   <div class="col-lg-3 mb-3">
-                                    <label class="col-form-label">Numero</label>
+                                    <label class="col-form-label">Numero de Registro</label>
                                     <input class="form-control" type="text" name="numero"
                                     {{ $edicion?'enabled':'disabled' }}
                                     value="{{ old('numero',$legajo->numero) }}" >
