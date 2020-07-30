@@ -8,7 +8,7 @@ use App\Exports\Veh002Export;
 use Carbon\Carbon;
 use App\Veh001;
 use App\Veh002;
-use App\Veh010;
+use App\Veh010;     // RTO
 Use Maatwebsite\Excel\Sheet;
 use DB;
 
@@ -29,6 +29,8 @@ class InfNovedController extends Controller
     public function index($id = null, $nrolegajo = null, $cod_nov = null)
     {
         $legajoNew = new Veh001;
+        $lastRegActive2 = null;
+        $lastRegBajas2 = null;
         $agregar = False;
         $edicion = False;    // True: Muestra botones Grabar - Cancelar   //  False: Muestra botones: Agregar, Editar, Borrar
         $active = 100;
@@ -62,9 +64,20 @@ class InfNovedController extends Controller
 
         // Combos de tablas anexas
         $legajos   = Veh001::orderBy('codigo')->get();
-        $legajosb   = Veh002::orderBy('codigo')->get();
+        // Last reg. Active
+        $lastRegActive = Veh001::orderBy('codigo','Desc')->first();
+        if ($lastRegActive != null) {
+            $lastRegActive2 = $lastRegActive->codigo;
+        }
 
-        return view('informes.nomina')->with(compact('legajoNew','agregar','edicion','active','novedades','legajos','legajosb'));
+        $legajosb   = Veh002::orderBy('codigo')->get();
+        // Last reg. Bajas
+        $lastRegBajas = Veh002::orderBy('codigo','Desc')->first();
+        if ($lastRegBajas != null) {
+            $lastRegBajas2 = $lastRegBajas->codigo;
+        }
+
+        return view('informes.nomina')->with(compact('legajoNew','agregar','edicion','active','novedades','legajos','legajosb','lastRegActive2','lastRegBajas2'));
     }
 
 

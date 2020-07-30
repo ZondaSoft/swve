@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Veh001;
-use App\Veh007;
+use App\Veh007;     // Grupos de vehiculos
 use App\Veh011;     //  Multas
 
 class MultasController extends Controller

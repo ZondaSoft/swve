@@ -67,7 +67,11 @@
                         <label class="col-form-label" id="lblvehiculo2">Hasta Vehículo</label>
                         <select class="form-control" id="vehiculo2" name="vehiculo2">
                           @foreach ($legajos as $legajo)
-                              <option value = "{{ old('vehiculo2',$legajo->codigo) }}">
+                              <option value = "{{ old('vehiculo2',$legajo->codigo) }}" 
+                                @if ($legajo->codigo == $lastRegActive2)
+                                    selected
+                                @endif
+                                >
                                 {{ $legajo->codigo  }} - {{ $legajo->detalle }} {{ $legajo->nombres }}
                               </option>
                           @endforeach
@@ -75,7 +79,11 @@
 
                         <select class="form-control" id="vehiculob2" name="vehiculob2" style="display: none;">
                           @foreach ($legajosb as $legajob)
-                              <option value = "{{ old('vehiculo2',$legajo->codigo) }}">
+                              <option value = "{{ old('vehiculo2',$legajob->codigo) }}"
+                                @if ($legajob->codigo == $lastRegBajas2)
+                                    selected
+                                @endif
+                                >
                                 {{ $legajob->codigo  }} - {{ $legajob->detalle }} {{ $legajob->nombres }}
                               </option>
                           @endforeach

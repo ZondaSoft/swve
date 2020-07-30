@@ -1,5 +1,6 @@
 <?php
 
+// Multas
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;

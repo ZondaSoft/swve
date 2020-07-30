@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Veh001;
 use App\Veh002;
-use App\Veh010;
+use App\Veh010;   // RTO
 use DB;
 
 class InfPagosController extends Controller

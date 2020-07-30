@@ -41,7 +41,7 @@
                   <label class="col-form-label">Dominio * </label>
                   <div class="input-group " name="legajo" id="legajo" data-provide="" keyboardNavigation="false">
 
-                      <input class="form-control" type="text" value="{{ $legajo->dominio }}" name="rto_dominio" id="rto_dominio"
+                      <input class="form-control" type="text" value="{{ $legajo->dominio }}" name="rto_dominioed" id="rto_dominioed"
                       required autocomplete="off" maxlength="7" style="width: 80px" disabled>
                     </div>
                </div>
@@ -109,7 +109,7 @@
                             @if ($novedades != null)
                               @if ($novedades->count() > 0)
                                   <input class="form-control" type="text" value="{{ old('vencimient',$legajoNew->vencimient) }}" name="rto_fechaEdit2" id="rto_fechaEdit2"
-                                      disabled required autocomplete="off" onchange="calcularDias()">
+                                      required autocomplete="off" onchange="calcularDias()">
                               @endif
                             @endif
 
@@ -143,12 +143,12 @@
         </div>
         <div class="modal-footer">
            <div class="col-lg-9 mb-9">
-              <button class="btn btn-warning" type="submit" name="btngrabarR" id="btngrabarR" style="height: 35.533px" value='borrar'>
+              <button class="btn btn-warning" type="submit" name="btnborrarR" id="btnborrarR" style="height: 35.533px" value='borrar'>
                 <span class="btn-label"><i class="fa fa-trash"></i>
                 </span>Borrar !</button>
            </div>
 
-           <button class="btn btn-danger" type="button" data-dismiss="modal" name="btncancelar" id="btncancelar"> Cancelar </button>
+           <button class="btn btn-danger" type="button" data-dismiss="modal" name="btncancelarRe" id="btncancelarRe"> Cancelar </button>
            <button class="btn btn-success" type="submit" name="btngrabarR" id="btngrabarR" value="grabar"> Grabar... </button>
            <!-- <input type="submit" value="Enviar información"> -->
         </div>

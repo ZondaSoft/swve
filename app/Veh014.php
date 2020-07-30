@@ -1,12 +1,10 @@
 <?php
 
-// Siniestros
-
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Veh012 extends Model
+class Veh014 extends Model
 {
     //
 }

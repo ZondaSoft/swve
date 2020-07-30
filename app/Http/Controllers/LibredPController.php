@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Veh001;
 use App\Veh002;
-use App\Veh015;
-use App\Veh025;
-use App\Veh026; // Libre deuda de multa
-use App\Veh027;
+use App\Veh015;     // Siniestros de terceros
+use App\Veh025;     // Inicio venta
+use App\Veh026;     // Libre deuda de multa, Libre deuda de patente, informe de Dominio
+use App\Veh027;     // Comprador
 
 class LibredPController extends Controller
 {

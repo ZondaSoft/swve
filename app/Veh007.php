@@ -1,5 +1,6 @@
 <?php
-
+ // Grupos de vehiculos
+ 
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;

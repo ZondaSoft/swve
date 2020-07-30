@@ -96,7 +96,7 @@
                 </span>Borrar !</button>
            </div>
 
-           <button class="btn btn-danger" type="button" data-dismiss="modal" name="btncancelar" id="btncancelar"> Cancelar </button>
+           <button class="btn btn-danger" type="button" data-dismiss="modal" name="btncancelarPe" id="btncancelarPe"> Cancelar </button>
            <button class="btn btn-success" type="submit" name="btngrabarPolicial" id="btngrabarPolicial" value="grabar" value='grabar'> Grabar... </button>
            <!-- <input type="submit" value="Enviar información"> -->
         </div>

@@ -47,7 +47,7 @@
 
                 <div class="col-lg-6 mb-6">
                    <label class="col-form-label">Detalle</label>
-                   <input class="form-control" type="text" name="sin_detalle" id="sin_detalle"
+                   <input class="form-control" type="text" name="sini_detalle" id="sini_detalle"
                    disabled
                    value="{{ old('codigo',$legajo->detalle) }}" autocomplete='off'>
                 </div>
@@ -111,7 +111,7 @@
 
             </div>
             <div class="modal-footer">
-               <button class="btn btn-danger" type="button" data-dismiss="modal" id="btncancelar"> Cancelar </button>
+               <button class="btn btn-danger" type="button" data-dismiss="modal" id="btncancelarSinic"> Cancelar </button>
                <button class="btn btn-success" type="submit" id="btngrabarS"> Grabar... </button>
                <!-- <input type="submit" value="Enviar información"> -->
             </div>

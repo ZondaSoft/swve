@@ -23,6 +23,7 @@ Route::get('/home/add', 'HomeController@add')->name('home');
 Route::post('/home/add', 'HomeController@store');
 Route::get('/home/edit/{id}', 'HomeController@edit')->name('home')->where('id', '[0-9]+');
 Route::post('/home/edit/{id}', 'HomeController@update');
+Route::get('/search/', 'HomeController@search')->name('home.search');
 Route::get('/home/search/', 'HomeController@search')->name('home.search');
 Route::get('/home/{id?}/search/', 'HomeController@search')->name('search');
 Route::get('/home/{id?}/{direction?}/search/', 'HomeController@search')->name('search');
@@ -199,8 +200,18 @@ Route::post('/sinies3/delete/{id}', 'SiniesTercController@delete');
 Route::post('/sinies3/delete_drop/{id}/{page?}', 'SiniesTercController@delete_drop'); // ->name('home');
 Route::post('/sinies3/delete_drop/{id}', 'SiniesTercController@delete_drop'); // ->name('home');
 
+
+// Impuesto automotor (Patentes)
+Route::get('/impuesto/add', 'ImpuestosController@add');
+Route::post('/impuesto/add', 'ImpuestosController@store');
+Route::get('/impuesto/edit/{id}', 'ImpuestosController@edit'); // ->name('home');
+Route::post('/impuesto/edit/{id}', 'ImpuestosController@update'); // ->name('home');
+Route::post('/impuesto/delete/{id}', 'ImpuestosController@delete');
+Route::post('/impuesto/delete_drop/{id}/{page?}', 'ImpuestosController@delete_drop'); // ->name('home');
+
+
 // Multas
-Route::get('/multas/add', 'MultasControllers@add');
+Route::get('/multas/add', 'MultasController@add');
 Route::post('/multas/add', 'MultasController@store');
 Route::get('/multas/edit/{id}', 'MultasController@edit'); // ->name('home');
 Route::post('/multas/edit/{id}', 'MultasController@update'); // ->name('home');

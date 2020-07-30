@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Veh001;
-use App\Veh007;
-use App\Veh010;
+use App\Veh007;     // Grupos de vehiculos
+use App\Veh010;     // RTO
 
 
 class RtoController extends Controller

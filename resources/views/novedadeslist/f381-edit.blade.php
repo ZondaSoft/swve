@@ -91,12 +91,12 @@
         </div>
         <div class="modal-footer">
            <div class="col-lg-9 mb-9">
-              <button class="btn btn-warning" type="submit" name="btngrabarF381" id="btngrabarF381" style="height: 35.533px" value='borrar'>
+              <button class="btn btn-warning" type="submit" name="btnborrarF381" id="btnborrarF381" style="height: 35.533px" value='borrar'>
                 <span class="btn-label"><i class="fa fa-trash"></i>
                 </span>Borrar !</button>
            </div>
 
-           <button class="btn btn-danger" type="button" data-dismiss="modal" name="btncancelar" id="btncancelar"> Cancelar </button>
+           <button class="btn btn-danger" type="button" data-dismiss="modal" name="btncancelarF381e" id="btncancelarF381e"> Cancelar </button>
            <button class="btn btn-success" type="submit" name="btngrabarF381" id="btngrabarF381" value="grabar" value='grabar'> Grabar... </button>
            <!-- <input type="submit" value="Enviar información"> -->
         </div>

@@ -145,8 +145,8 @@
           </div>
 
           <div class="modal-footer">
-             <button class="btn btn-danger" type="button" data-dismiss="modal" id="btncancelar"> Cancelar </button>
-             <button class="btn btn-success" type="submit" id="btngrabar"> Grabar... </button>
+             <button class="btn btn-danger" type="button" data-dismiss="modal" id="btncancelarMultac"> Cancelar </button>
+             <button class="btn btn-success" type="submit" id="btngrabarMultac"> Grabar... </button>
              <!-- <input type="submit" value="Enviar información"> -->
           </div>
      </div>

@@ -6,13 +6,13 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Veh001;
 use App\Veh007;     // Grupos de vehiculos
-use App\Veh012;     // Siniestros
+use App\Veh014;     // Multas
 
-class SiniesController extends Controller
+class ImpuestosController extends Controller
 {
     public function add()
     {
-        $legajo = new Veh012;      // find($id);     // dd($legajo);
+        $legajo = new Veh014;      // find($id);     // dd($legajo);
         $edicion = True;    // True: Muestra botones Grabar - Cancelar   //  False: Muestra botones: Agregar, Editar, Borrar
         $agregar = True;
         $active = 26;
@@ -27,14 +27,11 @@ class SiniesController extends Controller
 
         // Validaciones
         $messages = [
-            'sin_fecha.required'=>'La fecha es obligatoria',
-            'nro_siniestro.required'=>'El número de siniestro es obligatorio',
-            'nro_siniestro.unique'=>'El número de siniestro ya existe'
+            'patente_fecha.required'=>'La fecha es obligatoria'
             ];
 
         $rules = [
-            'sin_fecha'=>'required',
-            'nro_siniestro'=>'required|unique:veh012s'
+            'patente_fecha'=>'required'
             ];
 
         $this->validate($request, $rules, $messages);
@@ -43,16 +40,21 @@ class SiniesController extends Controller
         //    'legajo' => ['required', 'integer', new LegajoExiste],
         //]);
 
-        $legajo = new Veh012();
+        $legajo = new Veh014();
 
-        $legajo->unidad = $request->input('sin_interno');
-        $legajo->dominio = $request->input('sin_dominio');
-        $legajo->encarga = $request->input('sin_encarga');
-        $legajo->nro_siniestro = $request->input('nro_siniestro');
-        $legajo->detalle = $request->input('sin_detalle');
+        $legajo->unidad = $request->input('patente_interno');
+        $legajo->dominio = $request->input('patente_dominio');
+        $legajo->importe = $request->input('patente_importe');
+        $legajo->detalle = $request->input('patente_detalle');
 
-        $date = str_replace('/', '-', $request->input('sin_fecha'));
+        $legajo->periodo = $request->input('patente_periodo');
+        $legajo->periodo = substr($legajo->periodo,3,4) . '/' . substr($legajo->periodo,0,2);
+
+        $date = str_replace('/', '-', $request->input('patente_fecha'));
         $legajo->fecha = Carbon::createFromFormat("d-m-Y", $date);
+
+        //$date2 = str_replace('/', '-', $request->input('patente_fecha_pgo'));
+        //$legajo->fecha_pago = Carbon::createFromFormat("d-m-Y", $date2);
 
         $legajo->save();
 
@@ -66,7 +68,7 @@ class SiniesController extends Controller
     public function edit($id, $page = 1)
     {
         // id a NovedadesController:edit2() ver de unificar
-        $legajo = Veh012::find($id);
+        $legajo = Veh014::find($id);
 
         $legajo->fecha = Carbon::parse($legajo->fecha)->format('d/m/Y');
 
@@ -77,7 +79,7 @@ class SiniesController extends Controller
     public function update(Request $request, $id)
     {
         // Validaciones
-        /*if ($request->input('btngrabar') == 'grabar') {
+        /*if ($request->input('btngrabarM') == 'grabar') {
             $messages = [
                 'cantidadEdit.required'=>'La cantidad es obligatoria'
                 ];
@@ -90,17 +92,20 @@ class SiniesController extends Controller
         }
         */
 
-        $legajo = Veh012::find($id);
+        $legajo = Veh014::find($id);
 
-        $fecha = str_replace('/', '-', $request->input('sin_fecha_edit'));
-        dd($fecha);
+        $fecha = str_replace('/', '-', $request->input('patente_fecha_edit'));
         $legajo->fecha = Carbon::createFromFormat("d-m-Y", $fecha);
-        $legajo->detalle = $request->input('sin_ed_comenta');
-        $legajo->encarga = $request->input('sin_edit_encarga');
+
+        //$fecha = str_replace('/', '-', $request->input('patente_ed_fecha_pgo'));
+        //$legajo->fecha_pago = Carbon::createFromFormat("d-m-Y", $fecha);
+        $legajo->importe = $request->input('patente_ed_importe');
+        $legajo->detalle = $request->input('patente_ed_comenta');
+        $legajo->encarga = $request->input('patente_edit_encarga');
         //$legajo->nro_siniestro = $request->input('nro_siniestro_edit');
 
 
-        if ($request->input('btngrabarS') == 'grabar') {
+        if ($request->input('btngrabarM') == 'grabar') {
             $legajo->update($request->only('encarga','fecha','detalle'));
         } else {
             // Pido confirmar el Borrado
@@ -118,7 +123,7 @@ class SiniesController extends Controller
     public function delete($id)
     {
         // return "Mostrar form de edit $id";
-        $legajo = Veh012::find($id);
+        $legajo = Veh014::find($id);
         $agregar = False;
         $edicion = True;    // True: Muestra botones Grabar - Cancelar   //  False: Muestra botones: Agregar, Editar, Borrar
         $active = 1;
@@ -130,7 +135,7 @@ class SiniesController extends Controller
     public function delete_drop($id)
     {
         // return "Mostrar form de edit $id";
-        $legajo = Veh012::find($id);
+        $legajo = Veh014::find($id);
         $agregar = False;
         $edicion = True;    // True: Muestra botones Grabar - Cancelar   //  False: Muestra botones: Agregar, Editar, Borrar
         $active = 1;

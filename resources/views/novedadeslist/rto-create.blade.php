@@ -4,7 +4,7 @@
 <div class="modal fade" id="myModalLarge" name="myModalLarge" tabindex="-2" role="dialog" aria-labelledby="myModalLabelLarge" aria-hidden="true">
   <div class="modal-dialog modal-lg">
 
-    <form method="post" action="{{ url('/rto/add') }}" enctype="multipart/form-data">
+    <form method="post" id="rto-create" action="{{ url('/rto/add') }}" enctype="multipart/form-data">
 
     {{ csrf_field() }}
 
@@ -122,8 +122,8 @@
 
           </div>
           <div class="modal-footer">
-             <button class="btn btn-danger" type="button" data-dismiss="modal" id="btncancelar"> Cancelar </button>
-             <button class="btn btn-success" type="submit" id="btngrabar"> Grabar... </button>
+             <button class="btn btn-danger" type="button" data-dismiss="modal" id="btncancelarRtoc"> Cancelar </button>
+             <button class="btn btn-success" type="submit" id="btngrabarRtoc"> Grabar... </button>
              <!-- <input type="submit" value="Enviar información"> -->
           </div>
      </div>

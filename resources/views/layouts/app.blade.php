@@ -738,8 +738,8 @@
    <!-- JQUERY-->
    <script src="{{ asset('js/jquery.js') }}"></script>
    <!-- BOOTSTRAP-->
-   <script src="{{ asset('js/popper.js') }}"></script>
-   <script src="{{ asset('js/bootstrap.js') }}"></script>
+   <script src="{{ asset('/js/popper.js') }}"></script>
+   <script src="{{ asset('/js/bootstrap.js') }}"></script>
    <!-- STORAGE API-->
    <script src="{{ asset('js/js.storage.js') }}"></script>
    <!-- JQUERY EASING-->

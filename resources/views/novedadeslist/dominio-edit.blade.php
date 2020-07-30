@@ -8,7 +8,7 @@
         @if ($novedades->count() > 0)
             <form method="post" action="{{ url('/dominio/edit/'.$novedad->id) }}" enctype="multipart/form-data" name="dominio_ed_form" id="dominio_ed_form">
         @else
-            <form method="post" action="{{ url('/dominio/edit/') }}" enctype="multipart/form-data" name="sin-edit" id="sin-edit">
+            <form method="post" action="{{ url('/dominio/edit/') }}" enctype="multipart/form-data" name="dom-edit" id="dom-edit">
         @endif
     @endif
 
@@ -96,7 +96,7 @@
                 </span>Borrar !</button>
            </div>
 
-           <button class="btn btn-danger" type="button" data-dismiss="modal" name="btncancelar" id="btncancelar"> Cancelar </button>
+           <button class="btn btn-danger" type="button" data-dismiss="modal" name="btncancelarDominioe" id="btncancelarDominioe"> Cancelar </button>
            <button class="btn btn-success" type="submit" name="btngrabarDominio" id="btngrabarDominio" value="grabar" value='grabar'> Grabar... </button>
            <!-- <input type="submit" value="Enviar información"> -->
         </div>

@@ -1,5 +1,7 @@
 <?php
 
+// Comprador
+
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;

@@ -615,42 +615,36 @@
                                <!-- <div class="card-header">
                                </div> -->
 
-
-
                                <!-- START table-responsive-->
-
                                <div class="table-responsive">
                                   <table class="table table-striped table-bordered table-hover">
                                      <thead>
-                                       <th style="width: 800px">
+                                       <th style="width: 700px">
                                          <strong>Fecha</strong>
                                        </th>
-                                       <th style="width: 500px">
-                                         <strong>Nro. Siniestro</strong>
+                                       <th style="width: 400px">
+                                         <strong>Periodo</strong>
                                        </th>
-                                       <th>
-                                         <strong>Encargado</strong>
+                                       <th style="width: 350px">
+                                         <strong>Importe</strong>
                                        </th>
                                        <th style="width: 3000px">
                                          <strong>Comentarios</strong>
-                                       </th>
-                                       <th style="width: 1000px">
-                                         <strong>Estado</strong>
                                        </th>
                                        <th></th>
                                        <th></th>
                                      </thead>
                                      <tbody>
 
-                                       @if($siniestrosTer != null)
-                                          @foreach ($siniestrosTer as $novedad)
+                                       @if($patentes != null)
+                                          @foreach ($patentes as $novedadpat)
                                              <tr>
 
                                                <td>
                                                   <div class="media align-items-center">
                                                      <div class="media-body d-flex">
                                                         <div>
-                                                           {{ $novedad?$novedad->fecha :'' }}
+                                                           {{ $novedadpat?$novedadpat->fecha :'' }}
                                                         </div>
                                                      </div>
                                                   </div>
@@ -660,7 +654,7 @@
                                                   <div class="media align-items-center">
                                                      <div class="media-body d-flex">
                                                         <div>
-                                                           {{ $novedad?$novedad->nro_siniestro :'' }}
+                                                           {{ $novedadpat?substr($novedadpat->periodo,5,2) . '/' . substr($novedadpat->periodo,0,4):'' }}
                                                         </div>
                                                      </div>
                                                   </div>
@@ -670,18 +664,7 @@
                                                   <div class="media align-items-center">
                                                      <div class="media-body d-flex">
                                                         <div>
-                                                           {{ $novedad?$novedad->encarga:'' }}
-                                                        </div>
-
-                                                     </div>
-                                                  </div>
-                                               </td>
-
-                                               <td>
-                                                  <div class="media align-items-center">
-                                                     <div class="media-body d-flex">
-                                                        <div>
-                                                           {{ $novedad?$novedad->detalle:'' }}
+                                                           {{ $novedadpat?$novedadpat->importe:'' }}
                                                         </div>
 
                                                      </div>
@@ -692,7 +675,7 @@
                                                   <div class="media align-items-center">
                                                      <div class="media-body d-flex">
                                                         <div>
-                                                           {{ $novedad?$novedad->estado:'' }}
+                                                           {{ $novedadpat?$novedadpat->detalle:'' }}
                                                         </div>
 
                                                      </div>
@@ -701,7 +684,7 @@
 
                                                <td>
                                                  <div class="ml-auto">
-                                                    <a title="Editar siniestro 3ros." class="btn btn-warning btn-sm" onclick="showModalEditT({{ $novedad->id }})">
+                                                    <a title="Editar siniestro 3ros." class="btn btn-warning btn-sm" onclick="showModalEditT({{ $novedadpat->id }})">
                                                     <em class="fa fa-pencil" style="color: white"></em></a>
 
                                                     <!-- <button class="btn btn-warning btn-lg" name="btnAgregar" id="btnAgregar"
@@ -714,10 +697,10 @@
 
                                                <td>
                                                  <div class="ml-auto">
-                                                    <a title="Borrar siniestro 3ros." class="btn btn-danger btn-sm" onclick="showModaltBorrar({{ $novedad->id }})">
+                                                    <a title="Borrar impuesto automotor" class="btn btn-danger btn-sm" onclick="showModalpatenteBorrar({{ $novedadpat->id }})">
                                                       <em class="fa fa-trash" style="color: white"></em></a>
-                                                    <!-- <button type="button" data-product_id="{{ $novedad->id }}" data-product_name="{{ $novedad->name }}" class="btn btn-xs btn-default btn-flat" data-toggle="modal" data-target="#confirmDelete"><i class="fa fa-trash"></i></button> -->
-                                                    <!--<a title="Borrar novedad" class="btn btn-danger btn-sm" onclick="showModal({{ $novedad->id }})">
+                                                    <!-- <button type="button" data-product_id="{{ $novedadpat->id }}" data-product_name="{{ $novedadpat->name }}" class="btn btn-xs btn-default btn-flat" data-toggle="modal" data-target="#confirmDelete"><i class="fa fa-trash"></i></button> -->
+                                                    <!--<a title="Borrar novedadpat" class="btn btn-danger btn-sm" onclick="showModal({{ $novedadpat->id }})">
                                                       <em class="fa fa-trash" style="color: red"></em>
                                                     </a> -->
                                                  </div>
@@ -734,8 +717,8 @@
                                <div class="card-footer">
                                   <div class="d-flex">
                                      @if($siniestrosTer != null)
-                                         <button class="btn btn-warning btn-lg" name="btnAgregar" id="btnAgregar"
-                                           type="button" data-toggle="modal" data-target="#myModal-sinies3">
+                                         <button class="btn btn-warning btn-lg" name="btnAgregarImp" id="btnAgregarImp"
+                                           type="button" data-toggle="modal" data-target="#myModal-impuesto">
                                            <em class="fa fa-sticky-note"></em>
                                             Agregar Pago patente ...
                                          </button>
@@ -880,7 +863,7 @@
                                <div class="card-footer">
                                   <div class="d-flex">
                                      @if($siniestros != null)
-                                       <button class="btn btn-warning btn-lg" name="btnAgregar" id="btnAgregar"
+                                       <button class="btn btn-warning btn-lg" name="btnAgregarSinies" id="btnAgregarSinies"
                                          type="button" data-toggle="modal" data-target="#myModal-sinies">
                                          <em class="fa fa-sticky-note"></em>
                                           Agregar siniestros...
@@ -1041,7 +1024,7 @@
                                <div class="card-footer">
                                   <div class="d-flex">
                                      @if($siniestrosTer != null)
-                                         <button class="btn btn-warning btn-lg" name="btnAgregar" id="btnAgregar"
+                                         <button class="btn btn-warning btn-lg" name="btnAgregarSin3" id="btnAgregarSin3"
                                            type="button" data-toggle="modal" data-target="#myModal-sinies3">
                                            <em class="fa fa-sticky-note"></em>
                                             Agregar siniestro sufrido ...
@@ -1203,7 +1186,7 @@
                               <div class="card-footer">
                                  <div class="d-flex">
                                      @if($multas != null)
-                                       <button class="btn btn-warning btn-lg" name="btnAgregar" id="btnAgregar"
+                                       <button class="btn btn-warning btn-lg" name="btnAgregarMulta" id="btnAgregarMulta"
                                          type="button" data-toggle="modal" data-target="#myModal-multac">
                                          <em class="fa fa-sticky-note"></em>
                                           Agregar multa ...
@@ -1987,6 +1970,74 @@ if($exibirModal === "true") : // Si nuestra variable de control "$exibirModal" e
 
       }
 
+
+      function showModalpatenteBorrar(e) {
+
+      //alert(e);
+      var punto = e;
+
+      $.ajax({
+              url: "/sinies3/delete/" + punto,
+              data: "id="+punto+"&_token={{ csrf_token()}}",
+              dataType: "json",
+              method: "POST",
+              success: function(result)
+              {
+                if (result['result'] == 'ok')
+                  {
+                      swal("El siniestro recibido no puede eliminarse !", "Contiene digitalizaciones adjuntas, borrelas antes de poder eliminar el examen...")
+                  }
+                  else
+                  {
+                      swal({
+                            title: "Está seguro(a) ?",
+                            text: "Está a punto de eliminar el siniestro recibido!  # " + punto,
+                            type: "warning",
+                            showCancelButton: true,
+                            confirmButtonColor: "#DD6B55",
+                            confirmButtonText: "Si, eliminar !",
+                            closeOnConfirm: false
+                        },
+                        function() {
+                          $.ajax({
+                                  url: "/sinies3/delete_drop/" + punto,
+                                  data: "id="+punto+"&_token={{ csrf_token()}}",
+                                  dataType: "json",
+                                  method: "POST",
+                                  success: function(result)
+                                  {
+                                      if (result['result'] != 'ok') // Era ==
+                                      {
+                                          swal("El siniestro recibido no puede eliminarse !", "Contiene digitalizaciones adjuntas, borrelas antes de poder eliminar el examen...")
+                                      }
+                                      else
+                                      {
+                                          swal("Eliminado!", "El siniestro recibido fue eliminado.", "success");
+
+                                          location.reload();
+                                      }
+                                  },
+                                  fail: function(){
+                                      swal("Error !", "Contiene digitalizaciones adjuntas, borrelas antes de poder eliminar el siniestro recibido...");
+                                  },
+                                  beforeSend: function(){
+
+                                  }
+                              });
+
+                            swal("Eliminado!", "La novedad fue eliminada.", "success");
+                        })
+                  }
+              },
+              fail: function(){
+                  swal("Error !", "Contiene digitalizaciones adjuntas, borrelas antes de poder eliminar la novedad...");
+              },
+              beforeSend: function(){
+
+              }
+          });
+
+      }
 
     function showModaltBorrar(e) {
 
@@ -2811,6 +2862,105 @@ if($exibirModal === "true") : // Si nuestra variable de control "$exibirModal" e
               });
 
           }
+
+
+          // Periodo de Impuestos al automotor (patente)
+          function cargar_datos() {
+            var periodo = $("#patente_periodo").val();
+            var desde = '01/' + periodo;
+            var topemes = '30';
+            var mes = periodo.substring(0,2);
+            var anio = periodo.substring(3,10);
+
+
+            // Validate period
+            text = '';
+            document.getElementById("error_input").innerHTML = text;
+
+            if (anio < '1980') {
+                text = '* Año no válido (debe estar entre 1980 y 2030)';
+                document.getElementById("error_input").innerHTML = text;
+
+                anio = '2020';
+
+                $("#patente_periodo").val(mes + anio);
+                document.getElementById('patente_periodo').focus() = true;
+
+                return ;
+            }
+            if (anio > '2030') {
+                text = '* Año no válido (debe estar entre 1980 y 2030)';
+                document.getElementById("error_input").innerHTML = text;
+
+                anio = '2020';
+
+                $("#patente_periodo").val(mes + anio);
+                document.getElementById('patente_periodo').focus() = true;
+
+                return ;
+            }
+
+            if (mes === '1_') {
+                text = '* Mes no válido.';
+                document.getElementById("error_input").innerHTML = text;
+
+                $("#patente_periodo").val('01');
+                document.getElementById('patente_periodo').focus() = true;
+
+                return ;
+            }
+            if (mes === '1') {
+                text = '* Mes no válido.';
+                document.getElementById("error_input").innerHTML = text;
+
+                $("#patente_periodo").val('01');
+                document.getElementById('patente_periodo').focus() = true;
+                return false;
+            }
+            if (mes < '01') {
+                text = '* Mes no válido..';
+                document.getElementById("error_input").innerHTML = text;
+
+                $("#patente_periodo").val('01');
+                document.getElementById('patente_periodo').focus() = true;
+                return false;
+            }
+            if (mes > '12') {
+                text = '* Mes no válido...';
+                document.getElementById("error_input").innerHTML = text;
+
+                $("#patente_periodo").val('01/2020');
+                document.getElementById('patente_periodo').focus() = true;
+                
+                return ;
+            }
+
+            if (mes == '01') {
+                topemes = '31';
+            } else if (mes == '03') {
+                topemes = '31';
+            } else if (mes == '05') {
+                topemes = '31';
+            } else if (mes == '07') {
+                topemes = '31';
+            } else if (mes == '08') {
+                topemes = '31';
+            } else if (mes == '10') {
+                topemes = '31';
+            } else if (mes == '12') {
+                topemes = '31';
+            } else if (mes == '02') {
+                topemes = '28';
+            }
+
+
+            var hasta = topemes + '/' + periodo;
+            var quincena = '15' + '/' + periodo;
+
+            //$("#desde").val(desde);
+            //$("#hasta").val(hasta);
+            //$("#quincena").val(quincena);
+        }
 </script>
 
 <!-- SWEET ALERT-->
@@ -2849,3 +2999,4 @@ if($exibirModal === "true") : // Si nuestra variable de control "$exibirModal" e
 @include('novedadeslist.dnrpa-create')
 @include('novedadeslist.dnrpa-edit')
 @include('novedadeslist.factura-create')
+@include('novedadeslist.impuesto-create')

@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Veh001;
-use App\Veh026;
-use App\Veh020;
+use App\Veh026;     // Libre deuda de multa, Libre deuda de patente, informe de Dominio
+use App\Veh020;     // Factura de ventas
 
 class FacturaController extends Controller
 {

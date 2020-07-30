@@ -42,7 +42,7 @@
                   <label class="col-form-label">Dominio * </label>
                   <div class="input-group " name="legajo" id="legajo" data-provide="" keyboardNavigation="false">
 
-                      <input class="form-control" type="text" value="{{ $legajo->dominio }}" name="rto_dominio" id="rto_dominio"
+                      <input class="form-control" type="text" value="{{ $legajo->dominio }}" name="sini3_dominioed" id="sini3_dominioed"
                       required autocomplete="off" maxlength="7" style="width: 80px" disabled>
                     </div>
                </div>
@@ -162,7 +162,7 @@
                 </span>Borrar !</button>
            </div>
 
-           <button class="btn btn-danger" type="button" data-dismiss="modal" name="btncancelar" id="btncancelar"> Cancelar </button>
+           <button class="btn btn-danger" type="button" data-dismiss="modal" name="btncancelarTe" id="btncancelarTe"> Cancelar </button>
            <button class="btn btn-success" type="submit" name="btngrabarT" id="btngrabarT" value="grabar" value='grabar'> Grabar... </button>
            <!-- <input type="submit" value="Enviar información"> -->
         </div>

@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Veh001;
-use App\Veh007;
-use App\Veh010;
-use App\Veh011;
-use App\Veh012; // Siniestros
-use App\Veh015; // Siniestros de terceros
-use App\Veh025; // Inicio de Baja o Vtas
-use App\Veh026; // Libre deuda multas
-use App\Veh027; // Comprador
+use App\Veh007;     // Grupos de vehiculos
+use App\Veh010;     // RTO
+use App\Veh011;     // Multas
+use App\Veh012;     // Siniestros
+use App\Veh014;     // Pagos de impuestos (Patente)
+use App\Veh015;     // Siniestros de terceros
+use App\Veh025;     // Inicio de Baja o Vtas
+use App\Veh026;     // Libre deuda de multa, Libre deuda de patente, informe de Dominio
+use App\Veh027;     // Comprador
 
 class HomeController extends Controller
 {
@@ -44,13 +45,12 @@ class HomeController extends Controller
 
 
         if ($id == null) {
-              $legajo = Veh001::first();      // find($id);     // dd($legajo);
+            $legajo = Veh001::first();      // find($id);     // dd($legajo);
+        } else {
+            $legajo = Veh001::find($id);
 
-          } else {
-              $legajo = Veh001::find($id);
-
-              if ($legajo == null)
-                  $legajo = Veh001::first();      // find($id);     // dd($legajo);   // $legajo = new Veh001;
+            if ($legajo == null)
+                $legajo = Veh001::first();      // find($id);     // dd($legajo);   // $legajo = new Veh001;
           }
 
         // Si a pesar de todos los controles $legajo es null es porque no hay registros
@@ -90,6 +90,7 @@ class HomeController extends Controller
         // Datos de tablas anexas
         $novedades  = Veh010::orderBy('fecha')->where('dominio',$legajo->dominio)->paginate(8); // RTO
         $multas     = Veh011::orderBy('fecha')->where('dominio',$legajo->dominio)->paginate(8);
+        $patentes   = Veh014::orderBy('fecha')->where('dominio',$legajo->dominio)->paginate(8);
         $siniestros = Veh012::orderBy('fecha')->where('dominio',$legajo->dominio)->paginate(8);
         $siniestrosTer = Veh015::orderBy('fecha')->where('dominio',$legajo->dominio)->paginate(8);
         $tipos      = Veh007::orderBy('codigo')->get();
@@ -135,7 +136,7 @@ class HomeController extends Controller
             $dnrpa->fecha = Carbon::parse($dnrpa->fecha)->format('d/m/Y');
         }
 
-        return view('home')->with(compact('legajo','agregar','edicion','active','novedades','siniestros',
+        return view('home')->with(compact('legajo','agregar','edicion','active','novedades','patentes','siniestros',
           'multas','tipos','legajoNew','siniestrosTer','baja','comprador','libreDM','libreDP','dominio','denuncia','policial','ceta','f381','dnrpa'));
     }
 

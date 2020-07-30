@@ -1155,7 +1155,7 @@
                             <div class="card-footer">
                                <div class="d-flex">
                                    @if($multas != null)
-                                     <button class="btn btn-warning btn-lg" name="btnAgregar" id="btnAgregar"
+                                     <button class="btn btn-warning btn-lg" name="btnAgregarMulta" id="btnAgregarMulta"
                                        type="button" data-toggle="modal" data-target="#myModal-multac">
                                        <em class="fa fa-sticky-note"></em>
                                         Agregar multa ...

@@ -7,12 +7,12 @@ use Carbon\Carbon;
 use App\Veh001;
 use App\Veh002;
 use App\Veh007;   // Tipos de vehiculos
-use App\Veh010;
-use App\Veh011;
-use App\Veh012;
+use App\Veh010;   // RTO
+use App\Veh011;   // Multas
+use App\Veh012;   // Siniestros
 use App\Veh015;   // Siniestros de terceros
 use App\Veh025;   // Inicio venta
-use App\Veh026;
+use App\Veh026;   // Libre deuda de multa, Libre deuda de patente, informe de Dominio
 use App\Veh027;   // Comprador
 
 class BajasController extends Controller

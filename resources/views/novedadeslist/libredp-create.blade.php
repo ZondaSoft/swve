@@ -82,7 +82,7 @@
 
           </div>
           <div class="modal-footer">
-             <button class="btn btn-danger" type="button" data-dismiss="modal" id="btncancelar"> Cancelar </button>
+             <button class="btn btn-danger" type="button" data-dismiss="modal" id="btncancelarLibredp"> Cancelar </button>
              <button class="btn btn-success" type="submit" id="btngrabarLDP"> Grabar... </button>
              <!-- <input type="submit" value="Enviar información"> -->
           </div>

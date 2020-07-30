@@ -135,8 +135,8 @@
 
             </div>
             <div class="modal-footer">
-               <button class="btn btn-danger" type="button" data-dismiss="modal" id="btncancelar" tabindex="5"> Cancelar </button>
-               <button class="btn btn-success" type="submit" id="btngrabar"> Grabar... </button>
+               <button class="btn btn-danger" type="button" data-dismiss="modal" id="btncancelarSini3c" tabindex="5"> Cancelar </button>
+               <button class="btn btn-success" type="submit" id="btngrabarSini3c"> Grabar... </button>
                <!-- <input type="submit" value="Enviar información"> -->
             </div>
      </div>

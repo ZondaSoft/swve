@@ -47,7 +47,7 @@
 
                 <div class="col-lg-6 mb-6">
                    <label class="col-form-label">Detalle</label>
-                   <input class="form-control" type="text" name="libredp_det_veh" id="libredp_det_veh"
+                   <input class="form-control" type="text" name="dominio_det_veh" id="dominio_det_veh"
                    disabled
                    value="{{ old('codigo',$legajo->detalle) }}" autocomplete='off'>
                 </div>
@@ -82,7 +82,7 @@
 
           </div>
           <div class="modal-footer">
-             <button class="btn btn-danger" type="button" data-dismiss="modal" id="btncancelar"> Cancelar </button>
+             <button class="btn btn-danger" type="button" data-dismiss="modal" id="btncancelarDomc"> Cancelar </button>
              <button class="btn btn-success" type="submit" id="btngrabarLDP"> Grabar... </button>
              <!-- <input type="submit" value="Enviar información"> -->
           </div>

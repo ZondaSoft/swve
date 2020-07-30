@@ -42,7 +42,7 @@
                   <label class="col-form-label">Dominio * </label>
                   <div class="input-group " name="dominio_ed_baja" id="dominio_ed_baja" data-provide="" keyboardNavigation="false">
 
-                      <input class="form-control" type="text" value="{{ $legajo->dominio }}" name="ventas_ed_dominio" id="ventas_ed_dominio"
+                      <input class="form-control" type="text" value="{{ $legajo->dominio }}" name="comprador_ed_dominio" id="comprador_ed_dominio"
                       autocomplete="off" maxlength="7" style="width: 80px" disabled>
                     </div>
                </div>
@@ -112,7 +112,7 @@
                 </span>Borrar !</button>
            </div>
 
-           <button class="btn btn-danger" type="button" data-dismiss="modal" name="btncancelar" id="btncancelar"> Cancelar </button>
+           <button class="btn btn-danger" type="button" data-dismiss="modal" name="btncancelarCpe" id="btncancelarCpe"> Cancelar </button>
            <button class="btn btn-success" type="submit" name="btngrabarEdCp" id="btngrabarEdCp" value="grabar" value='grabar'> Grabar... </button>
            <!-- <input type="submit" value="Enviar información"> -->
         </div>
