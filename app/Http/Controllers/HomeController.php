@@ -197,9 +197,11 @@ class HomeController extends Controller
         $siniestros = null;
         $novedades = null;
 
+        $patentes   = Veh014::orderBy('fecha')->where('dominio',$legajo->dominio)->paginate(8);
+
         $legajoNew = new Veh010;
 
-        return view('home')->with(compact('legajo','agregar','edicion','active','tipos','novedades','siniestros','siniestrosTer','multas','baja','legajoNew'));
+        return view('home')->with(compact('legajo','agregar','edicion','active','patentes','tipos','novedades','siniestros','siniestrosTer','multas','baja','legajoNew'));
     }
 
 
