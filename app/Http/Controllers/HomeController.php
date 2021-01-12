@@ -274,6 +274,7 @@ class HomeController extends Controller
 
         // Datos de tablas anexas
         $novedades  = Veh010::orderBy('fecha')->where('dominio',$legajo->dominio)->paginate(8); // RTO
+        $patentes   = Veh014::orderBy('fecha')->where('dominio',$legajo->dominio)->paginate(8);
         $multas     = Veh011::orderBy('fecha')->where('dominio',$legajo->dominio)->paginate(8);
         $siniestros = Veh012::orderBy('fecha')->where('dominio',$legajo->dominio)->paginate(8);
         $siniestrosTer = Veh015::orderBy('fecha')->where('dominio',$legajo->dominio)->paginate(8);
@@ -322,7 +323,7 @@ class HomeController extends Controller
 
 
         return view('home')->with(compact('legajo','agregar','edicion','active','tipos','novedades','siniestros',
-          'multas','tipos','legajoNew','siniestrosTer','baja','comprador','libreDM','libreDP','dominio','denuncia','policial','ceta','f381','dnrpa'));    // Abrir form de modificacion
+          'multas','patentes','tipos','legajoNew','siniestrosTer','baja','comprador','libreDM','libreDP','dominio','denuncia','policial','ceta','f381','dnrpa'));    // Abrir form de modificacion
     }
 
 
