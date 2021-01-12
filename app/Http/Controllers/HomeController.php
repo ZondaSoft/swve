@@ -115,11 +115,11 @@ class HomeController extends Controller
         if ($dominio != null) {
             $dominio->fecha = Carbon::parse($dominio->fecha)->format('d/m/Y');
         }
-        $denuncia   = Veh026::orderBy('dominio')->get()->where('dominio',$legajo->dominio)->where('tramite',4)->first();
+        $denuncia  = Veh026::orderBy('dominio')->get()->where('dominio',$legajo->dominio)->where('tramite',4)->first();
         if ($denuncia != null) {
             $denuncia->fecha = Carbon::parse($denuncia->fecha)->format('d/m/Y');
         }
-        $policial   = Veh026::orderBy('dominio')->get()->where('dominio',$legajo->dominio)->where('tramite',5)->first();
+        $policial  = Veh026::orderBy('dominio')->get()->where('dominio',$legajo->dominio)->where('tramite',5)->first();
         if ($policial != null) {
             $policial->fecha = Carbon::parse($policial->fecha)->format('d/m/Y');
         }
@@ -137,7 +137,7 @@ class HomeController extends Controller
         }
 
         return view('home')->with(compact('legajo','agregar','edicion','active','novedades','patentes','siniestros',
-          'multas','tipos','legajoNew','siniestrosTer','baja','comprador','libreDM','libreDP','dominio','denuncia','policial','ceta','f381','dnrpa'));
+          'multas','patentes','tipos','legajoNew','siniestrosTer','baja','comprador','libreDM','libreDP','dominio','denuncia','policial','ceta','f381','dnrpa'));
     }
 
 

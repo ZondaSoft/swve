@@ -456,7 +456,7 @@
       </section>
       <!-- Page footer-->
       <footer class="footer-container">
-         <span>&copy; 2018 - Zonda Software</span>
+         <span>&copy; 2021 - Zonda Software - v. 1.07</span>
       </footer>
    </div>
 
