@@ -17,7 +17,7 @@ class Veh001 extends Model
       // dd("scope :" . $name);
 
       if ($name != "") {
-        $query->where(\DB::raw("CONCAT(codigo, ' ' , dominio , ' ' , vehiculo ,' ', detalle)"), "LIKE" , "%$name%");
+        $query->where(\DB::raw("CONCAT(codigo, ' ' , dominio , ' ', detalle)"), "LIKE" , "%$name%");
 
         //dd($query);
       }
@@ -30,7 +30,7 @@ class Veh001 extends Model
         //    ->orWhere('detalle', 'LIKE', "%$term%")
         //    ->get();
 
-        return static::select(\DB::raw("CONCAT(detalle,' ',vehiculo)  AS detalle"),'motor',\DB::raw("CONCAT(codigo)"))
+        return static::select(\DB::raw("CONCAT(detalle)  AS detalle"),'motor',\DB::raw("CONCAT(codigo)"))
             ->where(\DB::raw("CONCAT(codigo, ' ' ,detalle,' ', vehiculo)"), "LIKE" , "%$term%")
             ->get();
     }
