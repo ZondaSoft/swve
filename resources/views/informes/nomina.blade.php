@@ -56,7 +56,7 @@
 
                        <select class="form-control" id="vehiculob" name="vehiculob" style="display: none;">
                          @foreach ($legajosb as $legajob)
-                             <option value = "{{ old('vehiculo',$legajo->codigo) }}">
+                             <option value = "{{ old('vehiculob',$legajob->codigo) }}">
                                {{ $legajob->codigo  }} - {{ $legajob->detalle }} {{ $legajob->nombres }}
                              </option>
                          @endforeach

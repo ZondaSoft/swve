@@ -51,6 +51,7 @@ Route::get('/datosempresa/{id}/search/search', 'EmpresaController@index');
 Route::get('/bajas/{id?}/{direction?}', 'BajasController@index')->where(['id' => '[0-9]+', 'direction' => '[-1-9]+']);
 Route::get('/bajas/add', 'BajasController@add')->name('bajas');
 Route::post('/bajas/add', 'BajasController@store');
+Route::get('/bajas/{id?}/search', 'BajasController@search')->name('bajas.search');
 Route::get('/bajas/search', 'BajasController@search')->name('bajas.search');
 Route::get('/bajas/edit/{id}', 'BajasController@edit')->name('bajas')->where('id', '[0-9]+');
 Route::post('/bajas/edit/{id}', 'BajasController@update');
